@@ -1,0 +1,9 @@
+body {background:#F15E22; color:#1D0A3F; }
+h1, h2, h3 {color:#9CCB3C; }
+h1 {font-size: 1.8em; }
+h2 {font-size: 1.6em; }
+h3 {font-size: 1.4em; }
+fieldset {border:1em inset #A55125; padding: 0.5em; width:50% }
+legend {font-size: 1.2em; color:#712773; }
+label {display:block;}
+input[type="button"] {border:5px outset #A55125; margin: 4px 0; padding: 1px; cursor:pointer; }
