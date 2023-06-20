@@ -24,12 +24,13 @@ function signup(){
         alert(cred.user.email+"has Signed up" )
     });
     firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
-            window.location.href ="dashboard.html";
-        } else {
-          // No user is signed in.
-        }
-      });
+      if (user) {
+          window.location.href ="dashboard.html";
+          usertitle.innerHTML= user.email+"Dashboard";
+      } else {
+        // No user is signed in.
+      }
+    });
 }
 
 function signout(){
