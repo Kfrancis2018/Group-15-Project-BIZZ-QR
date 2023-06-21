@@ -20,6 +20,7 @@ nav{
 }
 .logo{
     width: 140px;
+    filter: brightness(0) invert(1);
 }
 .nav-link{
     padding: 28px 0;
@@ -41,7 +42,7 @@ nav{
 
 .nav-link li  a::after{
     content: '';
-    background: #ff3d00;
+    background: #ffd000;
     width: 0%;
     height: 2px;
     position: absolute ;
@@ -68,3 +69,17 @@ font-size:  65px;
 font-weight: 600;
 margin-bottom: 40px;
 }
+
+.input {
+    color: #8707ff;
+    border: 2px solid #8707ff;
+    border-radius: 10px;
+    padding: 10px 25px;
+    background: transparent;
+    max-width: 190px;
+   }
+   
+   .input:active {
+    box-shadow: 2px 2px 15px #8707ff inset;
+   }
+   
