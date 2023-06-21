@@ -5,15 +5,10 @@ function login(){
     password=document.getElementById("password").value;
     auth.signInWithEmailAndPassword(email,password).then(cred =>{
         alert(cred.user.email+"has Logged in" )
+        window.location.href ="dashboard.html";
     });
 
-    firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
-            window.location.href ="dashboard.html";
-        } else {
-          // No user is signed in.
-        }
-      });
+  
 }
 
 
@@ -22,15 +17,9 @@ function signup(){
     password=document.getElementById("password").value;
     auth.createUserWithEmailAndPassword(email,password).then(cred =>{
         alert(cred.user.email+"has Signed up" )
+        window.location.href ="login.html";
     });
-    firebase.auth().onAuthStateChanged(function(user) {
-      if (user) {
-          window.location.href ="dashboard.html";
-          usertitle.innerHTML= user.email+"Dashboard";
-      } else {
-        // No user is signed in.
-      }
-    });
+ 
 }
 
 function signout(){

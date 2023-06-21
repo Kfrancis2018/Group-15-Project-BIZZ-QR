@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,22 +9,28 @@
 <body>
   <div class="header" >
 <nav>
-  <img scr="images/placeholder.png" href="index.html" alt="company logo" class="logo">
+  <img scr="placeholder.png" href="index.html" alt="company logo" class="logo">
   <ul class="nav-link">
-    <button onclick="signout()" >Sign Out</button>
+    <li><a href="signup.html">Signup</a></li>
+
     
   </ul>
 </nav>
  
-
-</div> 
-
 <div class="content">
-  <h1 id="pagetitle">BIZZ QR DASHBOARD</h1><br>
+ <h1 id="pagetitle">BIZZ QR HOME PAGE</h1><br>
+ 
+  <label  for="fname">Email:</label><br>
+  <input type="text" id="email"><br>
+
+  <label for="fname">Password</label><br>
+  <input type="text" id="password"><br>
+
+  <button class="button-36" onclick="login()" >Login</button>
   
- 
- 
- </div>
+
+</div>
+</div> 
 </body>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
