@@ -1,48 +1,22 @@
-function downloadToFile(content, filename, contentType) {
-    const a = document.createElement('a');
-    const file = new Blob([content], { type: contentType });
-  
-    a.href = URL.createObjectURL(file);
-    a.download = filename;
-    a.click();
-  
-    URL.revokeObjectURL(a.href);
-  }
-  
-  function previewFile(event) {
-    let reader = new FileReader();
-    let file = event.target.files[0];
-  
-    reader.readAsDataURL(file);
-    reader.onloadend = () => (previewEl.src = reader.result);
-  }
-  
-  const makeVCardVersion = () => `VERSION:3.0`;
-  const makeVCardInfo = (info) => `N:${info}`;
-  const makeVCardName = (name) => `FN:${name}`;
-  const makeVCardOrg = (org) => `ORG:${org}`;
-  const makeVCardTitle = (title) => `TITLE:${title}`;
-  const makeVCardPhoto = (img) => `PHOTO;TYPE=JPEG;ENCODING=b:[${img}]`;
-  const makeVCardTel = (phone) => `TEL;TYPE=WORK,VOICE:${phone}`;
-  const makeVCardAdr = (address) => `ADR;TYPE=WORK,PREF:;;${address}`;
-  const makeVCardEmail = (email) => `EMAIL:${email}`;
-  const makeVCardTimeStamp = () => `REV:${new Date().toISOString()}`;
-  
-  function makeVCard() {
-    let vcard = `BEGIN:VCARD
-  ${makeVCardVersion()}
-  ${makeVCardInfo(cardInfoEl.value)}
-  ${makeVCardName(nameEl.value)}
-  ${makeVCardOrg(orgEl.value)}
-  ${makeVCardTitle(titleEl.value)}
-  ${makeVCardPhoto(previewEl.src)}
-  ${makeVCardTel(telEl.value)}
-  ${makeVCardAdr(addressEl.value)}
-  ${makeVCardEmail(emailEl.value)}
-  ${makeVCardTimeStamp()}
-  END:VCARD`;
-    downloadToFile(vcard, 'vcard.vcf', 'text/vcard');
-  }
-  
-  downloadEl.addEventListener('click', makeVCard);
-  fileEl.addEventListener('change', previewFile);
+var vCardsJS = require('vcards-js');
+ 
+//create a new vCard
+var vCard = vCardsJS();
+ 
+//set properties
+vCard.firstName = 'Eric';
+vCard.middleName = 'J';
+vCard.lastName = 'Nesser';
+vCard.organization = 'ACME Corporation';
+vCard.photo.attachFromUrl('https://avatars2.githubusercontent.com/u/5659221?v=3&s=460', 'JPEG');
+vCard.workPhone = '312-555-1212';
+vCard.birthday = new Date(1985, 0, 1);
+vCard.title = 'Software Developer';
+vCard.url = 'https://github.com/enesser';
+vCard.note = 'Notes on Eric';
+ 
+//save to file
+vCard.saveToFile('./eric-nesser.vcf');
+ 
+//get as formatted string
+console.log(vCard.getFormattedString());

@@ -57,7 +57,7 @@ nav{
 .content{
     position:  absolute;
     left:50%;
-    top: 5%;
+    top: 10%;
     width: 90%;
     max-width: 900px;
     transform: translate(-50%,50%);
@@ -116,3 +116,12 @@ margin-bottom: 40px;
   th a{
     min-width: 250px;
   }
+
+  .inputvcard{
+    width: 100%;
+}
+.organizartior{
+
+    column-span: all;
+   
+}
