@@ -12,9 +12,9 @@
 <nav>
   <img src="images/placeholder.png" href="index.html" alt="company logo" class="logo">
   <ul class="nav-link">
+   <li> <a href="dashboard.html">Dashboard</a></li>
+   <li>  <button onclick="signout()" >Sign Out</button></li>
     
-    <input type="button" onclick="signout()"  class="button" value="Sign Out">
-   
   </ul>
 </nav>
  
@@ -22,8 +22,24 @@
 </div> 
 
 <div class="content">
-  <h2 id="usertitle">BIZZ QR DASHBOARD</h2><br>
-   <a href="pickQRtype.html" class="button">create QR Code</a>
+<h1>Choose A QR type</h1>
+<table >
+    <tr>
+     
+      <th><a href="vcard.html" class="button">Vcard</a></th>
+      <th><a href="websitehtml" class="button">Website</a></th>
+    </tr>
+    <tr>
+      
+      <th><a href="location.html"class="button">Location</a></th>
+      <th><a href="text.html"class="button">Text</a></th>
+    </tr>
+    <tr>
+    
+      <th><a href="Call.html"class="button">Call</a></th>
+      <th><a href="Message.html"class="button">Message</a></th>
+    </tr>
+  </table>
  </div>
 </body>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
@@ -33,4 +49,3 @@
 <script src="userdata.js"></script>
 <script src="vcard.js"></script>
 </html>
-
