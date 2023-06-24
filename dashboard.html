@@ -23,11 +23,27 @@
 
 <div class="content">
   <h2 id="usertitle">BIZZ QR DASHBOARD</h2><br>
+  <th><button class="button" onclick="show()" >show Data</button></th>
+  <table >
+
+    <tr>
+      <td> Vcard Data</td>
+      <td><ol>
+        <li id="fnameshow"></li>
+        <li id="lnameshow"></li>
+        <li id="organizationshow"></li>
+        <li id="birthdayshow"></li>
+        <li id="titleshow"></li>
+      </ol> </td>
+    </tr>
+  </table>
    <a href="pickQRtype.html" class="button">create QR Code</a>
+   
  </div>
 </body>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
 <script src="config.js"></script>
 <script src="auth.js"></script>
 <script src="userdata.js"></script>
