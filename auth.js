@@ -35,9 +35,9 @@ function signout(){
 function set(){
 
     var fname=document.getElementById("fname").value;
-    var lname=document.getElementById("lname").value;
+    var lname=document.getElementById("birthday").value;
     var organization=document.getElementById("organization").value;
-    var organization=document.getElementById("birthday").value;
+    var birthday=document.getElementById("birthday").value;
     var title=document.getElementById("title").value;
     var UserID= auth.currentUser.uid;
 
