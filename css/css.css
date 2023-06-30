@@ -9,7 +9,7 @@
  
     width: 100%;
     padding: 0 8%;
-    background: #530153;
+    background: #4b4c4d;
     position: relative;
     box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.08), 0 8px 16px 0 rgba(0, 0, 0, 0.12);
 }
@@ -42,7 +42,7 @@ nav{
 
 .nav-link li  a::after{
     content: '';
-    background: #ffd000;
+    background: #1c6e8c;
     width: 0%;
     height: 2px;
     position: absolute ;
@@ -59,7 +59,7 @@ nav{
     left:50%;
     top: 10%;
     width: 90%;
-    max-width: 900px;
+
     transform: translate(-50%,50%);
     text-align: center;
     color: #000000;
@@ -71,8 +71,8 @@ margin-bottom: 40px;
 }
 
 .input {
-    color: #8707ff;
-    border: 2px solid #8707ff;
+    color: #1c6e8c;
+    border: 2px solid #001986;
     border-radius: 10px;
     padding: 10px 25px;
     background: transparent;
@@ -80,7 +80,7 @@ margin-bottom: 40px;
    }
    
    .input:active {
-    box-shadow: 2px 2px 15px #8707ff inset;
+    box-shadow: 2px 2px 15px #3f3cec inset;
    }
    
 
@@ -93,7 +93,7 @@ margin-bottom: 40px;
     padding: 10px;
    }
    .button {
-    background-color: #8707ff; /* Green */
+    background-color: #1c6e8c; /* Green */
     border: none;
     color: white;
     padding: 15px 32px;
@@ -103,20 +103,15 @@ margin-bottom: 40px;
     font-size: 16px;
     border-radius: 4px;
   }
-   
-
   .button {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   }
-  
   .button:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   }
-
   th a{
     min-width: 250px;
   }
-
   .inputvcard{
     width: 100%;
 }
@@ -124,4 +119,8 @@ margin-bottom: 40px;
 
     column-span: all;
    
+}
+
+#dynamicList li{
+    text-decoration: none;
 }

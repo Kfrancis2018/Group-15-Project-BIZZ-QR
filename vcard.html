@@ -4,7 +4,7 @@
 <html>
 <head>
    
-  <link rel="stylesheet" href="css.css">
+  <link rel="stylesheet" href="css/css.css">
 <title>BIZZ QR</title>
 </head>
 <body>
@@ -24,6 +24,9 @@
 <div class="content">
 <h1>Create Vcard</h1>
 <table >
+  <tr>
+    <th colspan="2">  <input type="text"class="inputvcard" placeholder="QR name" id="qrname"></th>
+  </tr>
     <tr>
      
       <th>  <input type="text"class="inputvcard" placeholder="First Name" id="fname"></th>
@@ -34,14 +37,30 @@
       <th colspan="2">  <input type="text"class="inputvcard" placeholder="Organization" id="organization"></th>
     </tr>
     <tr>
-      <th><input type="text"class="inputvcard" placeholder="Birthday" id="birthday"onfocus="(this.type='date')"
-        onblur="(this.type='text')"></th>
-      <th><input type="text"class="inputvcard" placeholder="title" id="title" ></th>
+      
+      <th colspan="2" ><input type="text"class="inputvcard" placeholder="title" id="title" ></th>
     </tr>
     <tr>
+      <th colspan="2">  <input type="text"class="inputvcard" placeholder="phone" id="phone"></th>
+    </tr>
+    <tr>
+     
+      <th>  <input type="text"class="inputvcard" placeholder="email" id="email"></th>
+    
+      <th>  <input type="text"class="inputvcard" placeholder="website" id="website"></th>
+      
+    </tr>
+    <tr>
+      <th colspan="2">  <input type="text"class="inputvcard" placeholder="Address" id="address"></th>
+    </tr>
+    <tr>
+      <th colspan="2">  <input type="text"class="inputvcard" placeholder="About you" id="about"></th>
+    </tr>
+    <tr>
+      
     
       
-      <th><button class="button" onclick="set()" >Add to database</button></th>
+      <th><button class="button" onclick="savevcard()" >Add to database</button></th>
     </tr>
 
   </table>
@@ -51,8 +70,10 @@
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-<script src="config.js"></script>
-<script src="auth.js"></script>
+<script src="scripts/config.js"></script>
+<script src="scripts/auth.js"></script>
+<script src="scripts/userdata.js"></script>
+<script src ="scripts/vcard.js"></script>
 
-<script src="vcard.js"></script>
+
 </html>

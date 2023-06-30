@@ -6,10 +6,13 @@ function login(){
     password=document.getElementById("password").value;
     auth.signInWithEmailAndPassword(email,password).then(cred =>{
         alert(cred.user.email+"has Logged in" )
+
+        
         window.location.href ="dashboard.html";
     });
 
-  
+    
+
 }
 
 
@@ -19,7 +22,12 @@ function signup(){
     auth.createUserWithEmailAndPassword(email,password).then(cred =>{
         alert(cred.user.email+"has Signed up" )
         window.location.href ="login.html";
+
+
+        
     });
+
+
  
 }
 
@@ -39,14 +47,22 @@ function set(){
     var organization=document.getElementById("organization").value;
     var birthday=document.getElementById("birthday").value;
     var title=document.getElementById("title").value;
+    var website=document.getElementById("website").value;
+    var email=document.getElementById("email").value;
+    var qrname=document.getElementById("qrname").value;
+    var about=document.getElementById("about").value;
     var UserID= auth.currentUser.uid;
 
-    db.collection(UserID).doc("Vcard").set({
+    db.collection(UserID).doc("website").set({
         fname :fname, 
         lname:lname,
         organization:organization,
         birthday:birthday,
-        title:title, 
+        title:title,
+        email:email, 
+        about:about, 
+        qrname:qrname,
+        website:website, 
 
     }).then(() =>{
             "Vcard Created"
@@ -57,23 +73,5 @@ function set(){
         "Error Writing Document", error
     });
 }
-function show(){
-    var UserID = auth.currentUser.uid;
-    db.collection(UserID).doc("Vcard").get().then((doc)=> {
-        if(doc.exists){
-            console.log("document data" , doc.data() );
-            document.getElementById("fnameshow").innerHTML=doc.data().fname;
-            document.getElementById("lnameshow").innerHTML=doc.data().lname;
-            document.getElementById("organizationshow").innerHTML=doc.data().organization;
-            document.getElementById("birthdayshow").innerHTML=doc.data().birthday;
-            document.getElementById("titleshow").innerHTML=doc.data().title;
-        }else{
-            console.log("no such document");
-        }
 
-
-    })
-    
-
-    }
 
