@@ -1,30 +1,7 @@
-firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-        var UserID = auth.currentUser.uid;
-        var docRef = db.collection(UserID).doc("qrcodesList"); // Replace "docId" with the actual document ID
 
-        // Check if the document exists
-        docRef.get().then(function(doc) {
-          if (doc.exists) {
-            console.log("Document 'qrcodesList' already exists.");
-          } else {
-            // Document doesn't exist, create it
-            docRef.set({
-              qrcodes: []
-            }).then(function() {
-              console.log("Document 'qrcodesList' created.");
-            }).catch(function(error) {
-              console.error("Error creating document: ", error);
-            });
-          }
-        }).catch(function(error) {
-          console.error("Error checking document existence: ", error);
-        });
-      
-    } else {
-      // No user is signed in.
-    }
-  });
+
+
+
 
 
 createDashboard();
@@ -49,26 +26,31 @@ function createDashboard(){
 
 
 function showqr(){
-    var UserID = auth.currentUser.uid;
+  var UserID = auth.currentUser.uid;
 
+  const collectionRef = db.collection(UserID);
 
-    
-    db.collection(UserID).doc("qrcodesList").get().then((doc)=> {
-        if(doc.exists){
-            console.log("document data" , doc.data() );
-            document.getElementById("qrname").innerHTML=doc.data().qrname;
-            var qrlist=doc.data().qrcodes;
-            additemtolist(qrlist);
-        }else{
-            console.log("no such document");
-        }
+  collectionRef.get()
+  .then((querySnapshot) => {
+    // Array to store the document names
+    const documentNames = [];
 
+    // Loop through each document
+    querySnapshot.forEach((doc) => {
+      // Get the name of each document
+      const documentName = doc.id;
 
-    })
-    
+      // Add the document name to the array
+      documentNames.push(documentName);
+    });
 
-
-    
+    // Do something with the array of document names
+    console.log(documentNames);
+    additemtolist(documentNames);
+  })
+  .catch((error) => {
+    console.log('Error getting documents:', error);
+  });
 
     }
 
@@ -170,13 +152,32 @@ function addNewLiElement(name , type) {
 
   function editqr(){
     localStorage.setItem("qrname",  event.srcElement.id);
+    
+    window.location.href ="vcardedit.html";
   }
 
   function deleteqr(){
     localStorage.setItem("qrname",  event.srcElement.id);
+    deleteQR();
   }
 
-  
+
+  function deleteQR(){
+    var database = firebase.firestore();
+    var UserID = auth.currentUser.uid;
+    // Specify the document you want to delete
+    var documentRef = database.collection(UserID).doc(localStorage.getItem("qrname"));
+    
+    // Delete the document
+    documentRef.delete()
+      .then(function() {
+        console.log("Document successfully deleted!");
+        window.location.href ="dashboard.html";
+      })
+      .catch(function(error) {
+        console.error("Error deleting document: ", error);
+      });
+  }
   
 
  

@@ -1,8 +1,4 @@
 
-
-
-
-
 function savevcard(){
 
   var fname=document.getElementById("fname").value;
@@ -29,39 +25,9 @@ function savevcard(){
       phone:phone, 
       type:"vcard",
 
-  }).then(() =>{
-    var docRef = db.collection(UserID).doc("qrcodesList"); // Replace "docId" with the actual document ID
-
-    // Check if the document exists
-    docRef.get().then(function(doc) {
-      if (doc.exists) {
-        console.log("Document 'qrcodesList' already exists.");
-      } else {
-        // Document doesn't exist, create it
-        docRef.set({
-          qrcodes: []
-        }).then(function() {
-          console.log("Document 'qrcodesList' created.");
-        }).catch(function(error) {
-          console.error("Error creating document: ", error);
-        });
-      }
-    }).catch(function(error) {
-      console.error("Error checking document existence: ", error);
-    });
-  }
-  
-  
-  ).catch((error)=>{
-      "Error Writing Document", error
-  });
-
-
-  db.collection(UserID).doc("qrcodesList").update({
-    qrcodes: firebase.firestore.FieldValue.arrayUnion(qrname)
-})
-.then(() => {
+  }).then(() => {
     console.log("Vcard Created");
+    window.location.href ="dashboard.html";
 })
 .catch((error) => {
 
