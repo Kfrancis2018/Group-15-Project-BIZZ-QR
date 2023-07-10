@@ -5,6 +5,82 @@
     box-sizing: border-box;
 }
 
+footer{
+    background-color: #4b4c4d;
+    margin-top: auto;
+}
+.footerContainer{
+    width: 100%;
+    padding: 60px 50px 10px;
+}
+
+
+.socialIcons{
+    display: flex;
+    justify-content: center;
+}
+
+
+.socialIcons a{
+    text-decoration:  none;
+    padding: 10px;
+    background-color: white;
+    margin: 10px;
+    border-radius: 50%;
+}
+.socialIcons a i{
+    font-size: 2em;
+    color:black;
+    opacity: 0.9;
+}
+.socialIcons a:hover{
+
+    background-color: #001986;
+    transition: .5s;
+}
+
+.socialIcons a:hover i{
+
+   color: white;
+    transition: .5s;
+}
+
+.footerNav{
+    margin: 30px 0;
+}
+
+.footerNav ul{
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+.footerNav ul li a{
+color: white;
+margin: 22px;
+text-decoration: none;
+font-size: 1.3em;
+opacity: .7;
+transition: .5;
+
+}
+
+.footerNav ul li a:hover{
+    opacity: 1;
+}
+
+
+.footerBottom{
+
+    background-color: black;
+    padding: 20px;
+    text-align: center;
+
+
+}
+
+.footerBottom p{
+    color: white;
+}
 .header{
  
     width: 100%;
@@ -31,7 +107,11 @@ nav{
     margin: 0 15px;
  
 }
-
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
 .nav-link li a{
 
     text-decoration: none;
@@ -54,21 +134,14 @@ nav{
     width: 100%;
 }
 
-.content{
-    position:  absolute;
-    left:50%;
-    top: 10%;
-    width: 90%;
 
-    transform: translate(-50%,50%);
+.content div{
+    padding: 20px;
     text-align: center;
-    color: #000000;
+    
+
 }
-.content h2{
-font-size:  30px;
-font-weight: 600;
-margin-bottom: 40px;
-}
+
 
 .input {
     color: #1c6e8c;
@@ -84,9 +157,7 @@ margin-bottom: 40px;
    }
    
 
-   table{
-    width: 100%;
-   }
+  
 
    table th{
   
@@ -124,3 +195,51 @@ margin-bottom: 40px;
 #dynamicList li{
     text-decoration: none;
 }
+
+#QR_List_Element{
+    
+    width: 100%;
+    background-color: #4b4c4d;
+    border: 1px solid;
+}
+
+#QR_List_Element tr{
+   
+    color: white;
+    border: 1px solid;
+}
+
+#QR_List_Element th{
+    width: 100px;
+   
+    
+ }
+
+ form {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .inputvcard {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+  }
+  
+
+  .form-box {
+    width: 400px; /* Adjust the width as needed */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+  }

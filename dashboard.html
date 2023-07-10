@@ -3,43 +3,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-   
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/css.css">
 <title>BIZZ QR</title>
 </head>
-<body>
+
   <div class="header" >
 <nav>
   <img src="images/placeholder.png" href="index.html" alt="company logo" class="logo">
   <ul class="nav-link">
+    <li><h2 id="usertitle">BIZZ QR DASHBOARD</h2></li>
+    <li><input type="button" onclick="signout()"  class="button" value="Sign Out"></li>
     
-    <input type="button" onclick="signout()"  class="button" value="Sign Out">
    
   </ul>
 </nav>
  
 
 </div> 
-
+<body>
 <div class="content">
-  <h2 id="usertitle">BIZZ QR DASHBOARD</h2><br>
-  <a href="pickQRtype.html" class="button">create QR Code</a><br><br>
+  <div> <a href="pickQRtype.html" class="button">create QR Code</a><br><br></div>
+
 
 
   <ul id="dynamicList" style="list-style: none;">
     <li>
-  <table id="QR List Element">
+  <table id="QR_List_Element">
             <tr>
-              <th rowspan="3" id="qrname">QR NAME </th> 
-              <th rowspan="3" id="type">QR TYPE </th> 
-          <th><button class="button" onclick="showqr()" >View QR Code</button></th>
+              <th  id="qrname">QR NAME </th> 
+              <th   id="type">QR TYPE</th> 
+              <th  > </th> 
+              <th  ></th> 
+              <th  ></th> 
+           
         </tr>
-        <tr>
-          <th><button class="button" onclick="generateVCard()" >Edit QR Code</button></th>
-        </tr>
-        <tr>
-          <th><button class="button" onclick="deleteQRCode()" >Delete QR Code</button></th>
-        </tr>
+
 </table>
 </li>
 </ul>
@@ -47,6 +46,37 @@
    
  </div>
 </body>
+
+
+
+<footer>
+  <div class="footerContainer">
+    
+    <div class="socialIcons">
+      <a href=""><i class="fa fa-facebook"></i> </a>
+      <a href=""><i class="fa fa-twitter"></i></a>
+      <a href=""><i class="fa fa-instagram"></i> </a>
+      <a href=""><i class="fa fa-google-plus"></i> </a>
+      <a href=""><i class="fa fa-youtube"></i> </a>
+
+    </div>
+    <div class="footerNav">
+      <ul>
+          <li> <a href="index.html">Home</a></li>
+          <li> <a href="">About</a></li>
+          <li> <a href="">Contact Us</a></li>
+          <li> <a href="">Our Team</a></li>
+          <li> <a href="">FAQ</a></li>
+
+      </ul>
+    </div>
+   
+  </div>
+  <div class="footerBottom">
+    <p>Copyright &copy;2023: Designed by <span class="designer">Group 15</span></p>
+
+  </div>
+</footer>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>

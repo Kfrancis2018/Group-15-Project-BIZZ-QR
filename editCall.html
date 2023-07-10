@@ -6,8 +6,6 @@
    
   <link rel="stylesheet" href="css/css.css">
 <title>BIZZ QR</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 </head>
 
   <div class="header" >
@@ -15,7 +13,7 @@
   <img src="images/placeholder.png" href="index.html" alt="company logo" class="logo">
   <ul class="nav-link">
    <li> <a href="dashboard.html">Dashboard</a></li>
-   <li>  <button class="button" onclick="signout()" >Sign Out</button></li>
+   <li>  <button onclick="signout()" >Sign Out</button></li>
     
   </ul>
 </nav>
@@ -24,24 +22,24 @@
 </div> 
 <body>
 <div class="content">
-<h1>Choose A QR type</h1>
-<table id="pickQR" >
+<h1 id="vcardtitle">Create  Phone Call QR</h1>
+<table >
+  <tr>
+    <th colspan="2">  <input type="text"class="inputvcard" placeholder="QR name" id="qrname"></th>
+  </tr> 
+  
     <tr>
-     
-      <th><a href="vcard.html" class="button">Vcard</a></th>
-      <th><a href="website.html" class="button">Website</a></th>
+      <th colspan="2">  <input type="text"class="inputvcard" placeholder="Phone Number" id="phone"></th>
     </tr>
     <tr>
       
-      <th><a href="location.html"class="button">Location</a></th>
-      <th><a href="text.html"class="button">Text</a></th>
-    </tr>
-    <tr>
     
-      <th><a href="call.html"class="button">Call</a></th>
-      <th><a href="Message.html"class="button">Message</a></th>
+      
+      <th><button class="button" onclick="savecall()" id="savebutton" >Add to database</button></th>
     </tr>
+
   </table>
+ 
  </div>
 </body>
 
@@ -73,12 +71,12 @@
 
   </div>
 </footer>
-
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
 <script src="scripts/config.js"></script>
 <script src="scripts/auth.js"></script>
-<script src="scripts/userdata.js"></script>
+<script src ="scripts/calledit.js"></script>
+
 
 </html>

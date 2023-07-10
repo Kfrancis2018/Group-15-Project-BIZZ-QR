@@ -1,9 +1,6 @@
 
 
 
-
-
-
 createDashboard();
 
 
@@ -61,10 +58,10 @@ function additemtolist(qrlist){
     for(let i=0; i< qrlist.length;i++){
         db.collection(UserID).doc(qrlist[i]).get().then((doc)=> {
             if(doc.exists){
-     
+              
+              addNewLiElement(qrlist[i], doc.data().type);
                 
-                document.getElementById("type").innerHTML=doc.data().type;
-                addNewLiElement(qrlist[i], doc.data().type);
+                
             }else{
                 console.log("no such document");
             }
@@ -86,7 +83,7 @@ function addNewLiElement(name , type) {
   
     // Create a new table element
     const newTableElement = document.createElement('table');
-    newTableElement.setAttribute('id', name);
+    newTableElement.setAttribute('id', "QR_List_Element");
   
     // Create the table rows and cells
     const tableRows = [
@@ -100,11 +97,11 @@ function addNewLiElement(name , type) {
   
       // Create and populate the cells
       const qrnameCell = document.createElement('th');
-      qrnameCell.setAttribute('rowspan', '3');
+    
       qrnameCell.textContent = rowData.qrname;
   
       const typeCell = document.createElement('th');
-      typeCell.setAttribute('rowspan', '3');
+    
       typeCell.textContent = rowData.type;
   
       // Create the buttons and their respective cells
@@ -145,15 +142,96 @@ function addNewLiElement(name , type) {
     ulElement.appendChild(newLiElement);
   }
   
-  function viewqr(){
-    localStorage.setItem("qrname",  event.srcElement.id);
-    window.location.href ="viewQRcode.html";
+  function getType(qrname) {
+    return new Promise((resolve, reject) => {
+      var UserID = auth.currentUser.uid;
+  
+      db.collection(UserID)
+        .doc(qrname)
+        .get()
+        .then((doc) => {
+          if (doc.exists) {
+            console.log("Document data:", doc.data());
+            var type = doc.data().type;
+            console.log(type);
+            resolve(type);
+          } else {
+            console.log("No such document");
+            resolve(null); // or reject("No such document") if you prefer to indicate an error
+          }
+        })
+        .catch((error) => {
+          console.log("Error retrieving document:", error);
+          reject(error);
+        });
+    });
   }
 
-  function editqr(){
-    localStorage.setItem("qrname",  event.srcElement.id);
-    
-    window.location.href ="vcardedit.html";
+  
+  async function viewqr() {
+    localStorage.setItem("qrname", event.srcElement.id);
+    const qrname = localStorage.getItem("qrname", event.srcElement.id);
+    try {
+      const type = await getType(qrname);
+  
+      switch (type) {
+        case "Call":
+          window.location.href = "viewCall.html";
+          break;
+        case "vcard":
+          window.location.href = "viewQRcode.html";
+          break;
+        case "location":
+          window.location.href = "viewLocation.html";
+          break;
+        case "text":
+          window.location.href = "viewEvent.html";
+          break;
+        case "website":
+          window.location.href = "viewWebsite.html";
+          break;
+        case "message":
+          window.location.href = "viewMessage.html";
+          break;
+        default:
+          console.log("Unknown type: " + type);
+      }
+    } catch (error) {
+      console.error("Error: " + error);
+    }
+  }
+
+  async function editqr(){
+    localStorage.setItem("qrname", event.srcElement.id);
+    const qrname = localStorage.getItem("qrname", event.srcElement.id);
+    try {
+      const type = await getType(qrname);
+  
+      switch (type) {
+        case "Call":
+          window.location.href = "editCall.html";
+          break;
+        case "vcard":
+          window.location.href = "editVcard.html";
+          break;
+        case "location":
+          window.location.href = "editLocation.html";
+          break;
+        case "text":
+          window.location.href = "editEvent.html";
+          break;
+        case "website":
+          window.location.href = "editWebsite.html";
+          break;
+        case "message":
+          window.location.href = "editMessage.html";
+          break;
+        default:
+          console.log("Unknown type: " + type);
+      }
+    } catch (error) {
+      console.error("Error: " + error);
+    }
   }
 
   function deleteqr(){
