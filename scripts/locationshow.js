@@ -9,7 +9,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     }
   });
 
-  function generateWebsiteQR(qrname) {
+  function generateLocationQR(qrname) {
     return new Promise((resolve, reject) => {
       var UserID = auth.currentUser.uid;
       db.collection(UserID)
@@ -19,9 +19,13 @@ firebase.auth().onAuthStateChanged(function(user) {
           if (doc.exists) {
             console.log("document data", doc.data());
    
-            var website = doc.data().website;
+            var street = doc.data().street;
+            var city = doc.data().city;
+            var state= doc.data().state;
+            var postcode = doc.data().postcode;
+           
       
-            const websiteString = `URL:${website.trim()}`;
+            const websiteString = `URL:${'https://www.google.com/maps/search/?api=1&query='+street.trim()+city.trim()+state.trim()+postcode.trim()}`;
             resolve(websiteString);
           } else {
             console.log("no such document");
@@ -37,7 +41,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
   async function downloadQR() {
     try {
-      const callData = await generateWebsiteQR(qrname);
+      const callData = await generateLocationQR(qrname);
       const qrCodeUrl = `https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl=${encodeURIComponent(
         callData.trim()
       )}`;
@@ -69,7 +73,7 @@ firebase.auth().onAuthStateChanged(function(user) {
   
   async function viewQR() {
     try {
-      const callData = await generateWebsiteQR(qrname);
+      const callData = await generateLocationQR(qrname);
   
       // Create a QR code using Google Charts API
       const qrCodeUrl = `https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl=${encodeURIComponent(

@@ -23,22 +23,20 @@
 <body>
 <div class="content">
 <h1 id="vcardtitle">Create  Phone Call QR</h1>
-<table >
-  <tr>
-    <th colspan="2">  <input type="text"class="inputvcard" placeholder="QR name" id="qrname"></th>
-  </tr> 
-  
-    <tr>
-      <th colspan="2">  <input type="text"class="inputvcard" placeholder="Phone Number" id="phone"></th>
-    </tr>
-    <tr>
-      
-    
-      
-      <th><button class="button" onclick="savecall()" id="savebutton" >Add to database</button></th>
-    </tr>
+<form class="form-box">
+  <div>
+    <label for="qrname">QR name:</label>
+    <input type="text" class="inputvcard" id="qrname" placeholder="e.g. Business Card">
+  </div>
 
-  </table>
+  <div>
+    <label for="phone">Phone:</label>
+    <input type="text" class="inputvcard" id="phone" placeholder="e.g. +19876543211">
+  </div>
+
+  <div>
+    <button class="button" onclick="savecall()" id="savebutton" type="button">Add to database</button>  </div>
+</form>
  
  </div>
 </body>

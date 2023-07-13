@@ -1,10 +1,8 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   
   <link rel="stylesheet" href="css/css.css">
-  <link rel="stylesheet" href="css/style.css">
 <title>BIZZ QR</title>
 </head>
 
@@ -15,27 +13,32 @@
   <ul class="nav-link">
  
     
-    <li><a href="login.html">Login</a></li>
+    <li><a href="dashboard.html">Dashboard</a></li>
     <li><a href="">/</a></li>
     <li><a href="index.html">Home</a></li>
   </ul>
 </nav>
-  </div><body>
+</div> 
+<body>
 <div class="content">
- <h1 id="pagetitle">BIZZ QR SIGNUP PAGE</h1><br>
- 
-  <label  for="fname">Email:</label><br>
-  <input type="text" id="email"><br>
+    <table>
+        <tr>
+            <th colspan="2">
+                <div id="qrcode"></div>
+            </th>
+        </tr>
+        <tr>
+            
+            <th>
+                <button class="button" onclick="downloadQR()" >Download QR</button>
+            </th>
+    
+        </tr>
 
-  <label for="fname">Password</label><br>
-  <input type="text" id="password"><br>
-
-
-  <button class="button-36" onclick="signup()" >Signup</button>
-
+</table>
 </div>
-</body>
 
+</body>
 <footer>
   <div class="footerContainer">
     
@@ -64,12 +67,12 @@
 
   </div>
 </footer>
-
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
 <script src="scripts/config.js"></script>
 <script src="scripts/auth.js"></script>
-<script src="scripts/userdata.js"></script>
+<script src="scripts/locationshow.js"></script>
+
 
 </html>

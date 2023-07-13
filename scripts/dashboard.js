@@ -181,16 +181,16 @@ function addNewLiElement(name , type) {
         case "vcard":
           window.location.href = "viewQRcode.html";
           break;
-        case "location":
+        case "Location":
           window.location.href = "viewLocation.html";
           break;
-        case "text":
-          window.location.href = "viewEvent.html";
+        case "Text":
+          window.location.href = "viewText.html";
           break;
-        case "website":
+        case "Website":
           window.location.href = "viewWebsite.html";
           break;
-        case "message":
+        case "Message":
           window.location.href = "viewMessage.html";
           break;
         default:
@@ -214,16 +214,16 @@ function addNewLiElement(name , type) {
         case "vcard":
           window.location.href = "editVcard.html";
           break;
-        case "location":
+        case "Location":
           window.location.href = "editLocation.html";
           break;
-        case "text":
-          window.location.href = "editEvent.html";
+        case "Text":
+          window.location.href = "editText.html";
           break;
-        case "website":
+        case "Website":
           window.location.href = "editWebsite.html";
           break;
-        case "message":
+        case "Message":
           window.location.href = "editMessage.html";
           break;
         default:

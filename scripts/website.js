@@ -1,18 +1,18 @@
 
-function savecall(){
+function savewebsite(){
 
 
   var qrname=document.getElementById("qrname").value;
-  var phone=document.getElementById("website").value;
+  var website=document.getElementById("website").value;
   var UserID= auth.currentUser.uid;
 
   db.collection(UserID).doc(qrname).set({
  
-      phone:phone, 
-      type:"Call",
+      website:website, 
+      type:"Website",
 
   }).then(() => {
-    console.log("Call Created");
+    console.log("Website Created");
     window.location.href ="dashboard.html";
 })
 .catch((error) => {

@@ -1,39 +1,47 @@
 
+
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   
   <link rel="stylesheet" href="css/css.css">
-  <link rel="stylesheet" href="css/style.css">
 <title>BIZZ QR</title>
 </head>
 
   <div class="header" >
 <nav>
-    <img src="images/placeholder.png" href="index.html" alt="company logo" class="logo">
-    
+  <img src="images/placeholder.png" href="index.html" alt="company logo" class="logo">
   <ul class="nav-link">
- 
+   <li> <a href="dashboard.html">Dashboard</a></li>
+   <li>  <button onclick="signout()" >Sign Out</button></li>
     
-    <li><a href="login.html">Login</a></li>
-    <li><a href="">/</a></li>
-    <li><a href="index.html">Home</a></li>
   </ul>
 </nav>
-  </div><body>
-<div class="content">
- <h1 id="pagetitle">BIZZ QR SIGNUP PAGE</h1><br>
  
-  <label  for="fname">Email:</label><br>
-  <input type="text" id="email"><br>
 
-  <label for="fname">Password</label><br>
-  <input type="text" id="password"><br>
+</div> 
+<body>
+<div class="content">
+<h1 id="vcardtitle">Create  Phone Call QR</h1>
+<form class="form-box">
+  <div>
+      <label for="qrname">QR name:</label>
+      <input type="text" class="inputvcard" id="qrname" placeholder="e.g. Business Card">
+    </div>
 
 
-  <button class="button-36" onclick="signup()" >Signup</button>
+    <div>
+      <label for="text">Text:</label>
+      <textarea class="inputvcard" id="text" placeholder="e.g. input any text" rows="4"></textarea>
+    </div>
 
-</div>
+
+
+<div>
+  <button class="button" onclick="savetext()" id="savebutton" type="button">Add to database</button>  </div>
+</form>
+ 
+ </div>
 </body>
 
 <footer>
@@ -64,12 +72,12 @@
 
   </div>
 </footer>
-
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
 <script src="scripts/config.js"></script>
 <script src="scripts/auth.js"></script>
-<script src="scripts/userdata.js"></script>
+<script src ="scripts/textEdit.js"></script>
+
 
 </html>

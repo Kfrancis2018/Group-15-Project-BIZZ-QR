@@ -1,18 +1,18 @@
-function savewebsite(){
+function savetext(){
 
 
   var qrname=document.getElementById("qrname").value;
-  var website=document.getElementById("website").value;
+  var text=document.getElementById("text").value;
   var UserID= auth.currentUser.uid;
 
   db.collection(UserID).doc(qrname).set({
 
-      website:website, 
-      type:"Website", 
+      text:text, 
+      type:"Text", 
 
   }).then(() => {
       window.location.href ="dashboard.html";
-    console.log("Website Created");
+    console.log("text Created");
 })
 .catch((error) => {
 
@@ -56,7 +56,7 @@ function editwebsite() {
       if (doc.exists) {
         console.log("Document data:", doc.data());
         document.getElementById("qrname").value = localStorage.getItem("qrname");
-        document.getElementById("website").value = doc.data().website;
+        document.getElementById("text").value = doc.data().text;
       } else {
         console.log("No such document");
       }

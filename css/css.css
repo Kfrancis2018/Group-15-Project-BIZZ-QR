@@ -31,7 +31,7 @@ footer{
 
 }
 .socialIcons a i{
-    width: 100px;
+    width: 100%;
     font-size: 2em;
     color:black;
     opacity: 0.9;

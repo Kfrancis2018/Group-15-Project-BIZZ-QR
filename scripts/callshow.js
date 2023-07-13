@@ -9,13 +9,32 @@ firebase.auth().onAuthStateChanged(function(user) {
     }
   });
 
-  function generateCallQR(phoneNumber) {
+  function generateCallQR(qrname) {
     return new Promise((resolve, reject) => {
-      const callString = `tel:${phoneNumber.trim()}`;
-      resolve(callString);
+      var UserID = auth.currentUser.uid;
+      db.collection(UserID)
+        .doc(qrname)
+        .get()
+        .then((doc) => {
+          if (doc.exists) {
+            console.log("document data", doc.data());
+   
+            var phone = doc.data().phone;
+      
+            const callString = `tel:${phone.trim()}`;
+            resolve(callString);
+          } else {
+            console.log("no such document");
+            reject(new Error("No such document"));
+          }
+        })
+        .catch((error) => {
+          console.error("Error retrieving call data:", error);
+          reject(error);
+        });
     });
   }
-  
+
   async function downloadQR() {
     try {
       const callData = await generateCallQR(qrname);

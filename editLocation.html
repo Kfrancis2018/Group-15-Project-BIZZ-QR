@@ -22,54 +22,38 @@
 </div> 
 <body>
 <div class="content">
-<h1 id="vcardtitle">Edit Vcard</h1>
+<h1 id="vcardtitle">Edit Location QR</h1>
 <form class="form-box">
   <div>
     <label for="qrname">QR name:</label>
     <input type="text" class="inputvcard" id="qrname" placeholder="e.g. Business Card">
   </div>
+
   <div>
-    <label for="fname">First Name:</label>
-    <input type="text" class="inputvcard" id="fname" placeholder="e.g. John">
+    <label for="lname">Street:</label>
+    <input type="text" class="inputvcard" id="street" placeholder="e.g. Cistern Ave">
   </div>
   <div>
-    <label for="lname">Last Name:</label>
-    <input type="text" class="inputvcard" id="lname" placeholder="e.g. Doe">
+    <label for="organization">City:</label>
+    <input type="text" class="inputvcard" id="city" placeholder="e.g. New York">
   </div>
   <div>
-    <label for="organization">Organization:</label>
-    <input type="text" class="inputvcard" id="organization" placeholder="e.g. My company name">
+    <label for="title">State:</label>
+    <input type="text" class="inputvcard" id="state" placeholder="e.g. Fl">
   </div>
   <div>
-    <label for="title">Title:</label>
-    <input type="text" class="inputvcard" id="title" placeholder="e.g. Ceo">
+    <label for="phone">Postal Code:</label>
+    <input type="text" class="inputvcard" id="postcode" placeholder="e.g. 33426">
   </div>
+  
   <div>
-    <label for="phone">Phone:</label>
-    <input type="text" class="inputvcard" id="phone" placeholder="e.g. +19876543211">
-  </div>
-  <div>
-    <label for="email">Email:</label>
-    <input type="text" class="inputvcard" id="email" placeholder="e.g. user@email.com">
-  </div>
-  <div>
-    <label for="website">Website:</label>
-    <input type="text" class="inputvcard" id="website" placeholder="e.g. https://mywebsite.com">
-  </div>
-  <div>
-    <label for="address">Address:</label>
-    <input type="text" class="inputvcard" id="address" placeholder="e.g. street ,city , postalcode">
-  </div>
-  <div>
-    <label for="about">About you:</label>
-    <input type="text" class="inputvcard" id="about" placeholder="e.g. Information about me">
-  </div>
-  <div>
-    <button class="button" onclick="savevcard()" id="savebutton" type="button">Add to database</button>  </div>
+    <button class="button" onclick="savelocation()" id="savebutton" type="button">Add to database</button>  </div>
 </form>
  
  </div>
 </body>
+
+
 
 <footer>
   <div class="footerContainer">
@@ -104,7 +88,7 @@
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
 <script src="scripts/config.js"></script>
 <script src="scripts/auth.js"></script>
-<script src ="scripts/vcardedit.js"></script>
+<script src ="scripts/locationedit.js"></script>
 
 
 </html>

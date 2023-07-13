@@ -9,7 +9,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     }
   });
 
-  function generateWebsiteQR(qrname) {
+  function generateTextQR(qrname) {
     return new Promise((resolve, reject) => {
       var UserID = auth.currentUser.uid;
       db.collection(UserID)
@@ -19,10 +19,10 @@ firebase.auth().onAuthStateChanged(function(user) {
           if (doc.exists) {
             console.log("document data", doc.data());
    
-            var website = doc.data().website;
+            var text = doc.data().text;
       
-            const websiteString = `URL:${website.trim()}`;
-            resolve(websiteString);
+            
+            resolve(text);
           } else {
             console.log("no such document");
             reject(new Error("No such document"));
@@ -35,12 +35,11 @@ firebase.auth().onAuthStateChanged(function(user) {
     });
   }
 
+
   async function downloadQR() {
     try {
-      const callData = await generateWebsiteQR(qrname);
-      const qrCodeUrl = `https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl=${encodeURIComponent(
-        callData.trim()
-      )}`;
+      const callData = await generateTextQR(qrname);
+      const qrCodeUrl = `https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl=${encodeURIComponent(callData.trim())}`;
   
       // Fetch the QR code image as a Blob
       const response = await fetch(qrCodeUrl);
@@ -52,7 +51,7 @@ firebase.auth().onAuthStateChanged(function(user) {
       // Create a temporary anchor element
       const downloadLink = document.createElement("a");
       downloadLink.href = url;
-      downloadLink.download = "qr_code.png";
+      downloadLink.download = localStorage.getItem("qrname");
   
       // Trigger a click event on the anchor element to initiate the download
       downloadLink.click();
@@ -66,10 +65,9 @@ firebase.auth().onAuthStateChanged(function(user) {
       console.error("Error downloading QR code:", error);
     }
   }
-  
   async function viewQR() {
     try {
-      const callData = await generateWebsiteQR(qrname);
+      const callData = await generateTextQR(qrname);
   
       // Create a QR code using Google Charts API
       const qrCodeUrl = `https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl=${encodeURIComponent(
@@ -83,5 +81,3 @@ firebase.auth().onAuthStateChanged(function(user) {
       console.error("Error generating QR code:", error);
     }
   }
-
-
