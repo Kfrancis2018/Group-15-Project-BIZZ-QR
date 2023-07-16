@@ -14,10 +14,15 @@ footer{
     padding: 30px 20px 5px;
 }
 
-
+.qrdescription{
+    font-family: 'georgia';
+    font-size: 10px;
+    text-decoration: underline;
+}
 .socialIcons{
     display: flex;
     justify-content: center;
+    font-weight: bold; 
 }
 
 
