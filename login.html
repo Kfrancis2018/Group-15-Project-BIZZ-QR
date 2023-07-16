@@ -23,15 +23,20 @@
 
 <div class="content">
  <h1 id="pagetitle">BIZZ QR LOGIN PAGE</h1><br>
- 
-  <label  for="fname">Email:</label><br>
-  <input type="text"class="input" id="email"><br>
+ <form class="form-box">
+  <div>
+    <label for="email">Email:</label>
+    <input type="text" class="inputvcard" id="email" placeholder="">
+  </div>
 
-  <label for="fname">Password</label><br>
-  <input type="text" class="input" id="password"><br>
+  <div>
+    <label for="password">Password:</label>
+    <input type="text" class="inputvcard" id="password" placeholder="">
+  </div>
 
-  <button class="button-36" onclick="login()" >Login</button>
-  
+  <div>
+    <button class="button" onclick="login()" id="savebutton" type="button">Login</button>  </div>
+</form>
 
 </div>
 </body>
