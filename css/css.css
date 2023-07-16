@@ -138,6 +138,12 @@ body{
 }
 
 
+.viewcontent{
+    padding: 20px;
+    text-align: center;
+    
+
+}
 .content div{
     padding: 20px;
     text-align: center;
@@ -245,4 +251,15 @@ body{
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     margin: 0 auto;
+  }
+
+
+  .viewtable {
+    margin: 0 auto;
+    padding-top: 20px;
+  }
+  
+  /* Add a box shadow around the table */
+  .viewtable {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
