@@ -33,13 +33,18 @@
     <label for="phone">Phone:</label>
     <input type="text" class="inputvcard" id="phone" placeholder="e.g. +19876543211">
   </div>
+  <div>
+    <label for="message">Message:</label>
+    <input type="text" class="inputvcard" id="message" placeholder="What time is the meeting?">
+  </div>
 
   <div>
-    <button class="button" onclick="savecall()" id="savebutton" type="button">Add to database</button>  </div>
+    <button class="button" onclick="savemessage()" id="savebutton" type="button">Add to database</button>  </div>
 </form>
  
  </div>
 </body>
+
 
 <footer>
   <div class="footerContainer">
@@ -74,7 +79,7 @@
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
 <script src="scripts/config.js"></script>
 <script src="scripts/auth.js"></script>
-<script src ="scripts/calledit.js"></script>
+<script src ="scripts/message.js"></script>
 
 
 </html>

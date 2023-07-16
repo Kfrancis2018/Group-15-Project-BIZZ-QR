@@ -1,46 +1,46 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
-   
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
   <link rel="stylesheet" href="css/css.css">
 <title>BIZZ QR</title>
 </head>
 
   <div class="header" >
 <nav>
-  <img src="images/placeholder.png" href="index.html" alt="company logo" class="logo">
-  <ul class="nav-link">
-   <li> <a href="dashboard.html">Dashboard</a></li>
-   <li>  <button onclick="signout()" >Sign Out</button></li>
+    <img src="images/placeholder.png" href="index.html" alt="company logo" class="logo">
     
+  <ul class="nav-link">
+ 
+    
+    <li><a href="dashboard.html">Dashboard</a></li>
+    <li><a href="">/</a></li>
+    <li><a href="index.html">Home</a></li>
   </ul>
 </nav>
- 
 
 </div> 
 <body>
 <div class="content">
-<h1 id="vcardtitle">Create  Phone Call QR</h1>
-<form class="form-box">
-  <div>
-    <label for="qrname">QR name:</label>
-    <input type="text" class="inputvcard" id="qrname" placeholder="e.g. Business Card">
-  </div>
+    <table>
+        <tr>
+            <th colspan="2">
+                <div id="qrcode"></div>
+            </th>
+        </tr>
+        <tr>
+            
+            <th>
+                <button class="button" onclick="downloadQR()" >Download QR</button>
+            </th>
+    
+        </tr>
 
-  <div>
-    <label for="phone">Phone:</label>
-    <input type="text" class="inputvcard" id="phone" placeholder="e.g. +19876543211">
-  </div>
+</table>
+</div>
 
-  <div>
-    <button class="button" onclick="savecall()" id="savebutton" type="button">Add to database</button>  </div>
-</form>
- 
- </div>
 </body>
-
 <footer>
   <div class="footerContainer">
     
@@ -69,12 +69,13 @@
 
   </div>
 </footer>
+
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
 <script src="scripts/config.js"></script>
 <script src="scripts/auth.js"></script>
-<script src ="scripts/calledit.js"></script>
+<script src="scripts/messageshow.js"></script>
 
 
 </html>
