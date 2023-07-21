@@ -1,10 +1,40 @@
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+
+      editvcard();
+ 
+    
+    
+  } else {
+    // No user is signed in.
+  }
+});
+function deleteQR(qrname){
+  var database = firebase.firestore();
+  var UserID = auth.currentUser.uid;
+  // Specify the document to  to delete
+  var documentRef = database.collection(UserID).doc(qrname);
+  
+  // Delete the document
+  documentRef.delete()
+    .then(function() {
+      console.log("Document successfully deleted!");
+    })
+    .catch(function(error) {
+      console.error("Error deleting document: ", error);
+    });
+}
 function savewebsite(){
 
 
   var qrname=document.getElementById("qrname").value;
   var website=document.getElementById("website").value;
   var UserID= auth.currentUser.uid;
-
+  if(localStorage.getItem("qrname")!=qrname){
+    // deletes the document so there is not a duplicate document created
+    deleteQR(localStorage.getItem("qrname"));
+  }
+  
   db.collection(UserID).doc(qrname).set({
 
       website:website, 

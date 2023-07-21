@@ -6,7 +6,11 @@ function savelocation() {
   var postcode= document.getElementById("postcode").value;
   var qrname = document.getElementById("qrname").value;
   var UserID = auth.currentUser.uid;
-
+  if(localStorage.getItem("qrname")!=qrname){
+    // deletes the document so there is not a duplicate document created
+    deleteQR(localStorage.getItem("qrname"));
+  }
+  
   db.collection(UserID)
     .doc(qrname)
     .set({
@@ -28,7 +32,21 @@ function savelocation() {
 
 
 
-
+function deleteQR(qrname){
+  var database = firebase.firestore();
+  var UserID = auth.currentUser.uid;
+  // Specify the document to  to delete
+  var documentRef = database.collection(UserID).doc(qrname);
+  
+  // Delete the document
+  documentRef.delete()
+    .then(function() {
+      console.log("Document successfully deleted!");
+    })
+    .catch(function(error) {
+      console.error("Error deleting document: ", error);
+    });
+}
 
 
 

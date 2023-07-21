@@ -1,4 +1,36 @@
+
+
+
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+
+      editvcard();
+ 
+    
+    
+  } else {
+    // No user is signed in.
+  }
+});
+
+
+function deleteQR(qrname){
+  var database = firebase.firestore();
+  var UserID = auth.currentUser.uid;
+  // Specify the document to  to delete
+  var documentRef = database.collection(UserID).doc(qrname);
+  
+  // Delete the document
+  documentRef.delete()
+    .then(function() {
+      console.log("Document successfully deleted!");
+    })
+    .catch(function(error) {
+      console.error("Error deleting document: ", error);
+    });
+}
 function savevcard(){
+
 
   var fname=document.getElementById("fname").value;
   var lname=document.getElementById("lname").value;
@@ -12,6 +44,14 @@ function savevcard(){
   var phone=document.getElementById("phone").value;
   var UserID= auth.currentUser.uid;
 
+  // checks if the qrname has beem changed
+  if(localStorage.getItem("qrname")!=qrname){
+    // deletes the document so there is not a duplicate document created
+    deleteQR(localStorage.getItem("qrname"));
+  }
+
+
+  // access the document containing the vcard information and saves the new data 
   db.collection(UserID).doc(qrname).set({
       fname :fname, 
       lname:lname,
@@ -41,25 +81,6 @@ function savevcard(){
 
 
 
-
-
-
-firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-
-      editvcard();
- 
-    
-    
-  } else {
-    // No user is signed in.
-  }
-});
-
-
-
-
-
 function editvcard() {
   var UserID = auth.currentUser.uid;
 
@@ -68,6 +89,7 @@ function editvcard() {
     .get()
     .then((doc) => {
       if (doc.exists) {
+        // auto populated the content of the form with data
         console.log("Document data:", doc.data());
         document.getElementById("fname").value = doc.data().fname;
         document.getElementById("lname").value = doc.data().lname;
