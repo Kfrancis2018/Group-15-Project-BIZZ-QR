@@ -4,7 +4,7 @@
 <head>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/css.css">
-  <link rel="stylesheet" href="css/style.css">
+
 <title>BIZZ QR</title>
 </head>
 
@@ -22,23 +22,27 @@
 </nav>
   </div><body>
 <div class="content">
- <h1 id="pagetitle">BIZZ QR SIGNUP PAGE</h1><br>
- 
- <form class="form-box">
-  <div>
-    <label for="email">Email:</label>
-    <input type="text" class="inputvcard" id="email" placeholder="">
-  </div>
-
-  <div>
-    <label for="password">Password:</label>
-    <input type="password" class="inputvcard" id="password" placeholder="">
-  </div>
-
-  <div>
-    <button class="button" onclick="signup()" id="savebutton" type="button">signup</button>  </div>
-</form>
-
+  <div class="viewcontent">
+    <form class="form-box">
+     <h1 id="pagetitle">BIZZQR  SIGNUP</h1><br>
+     <div> 
+       <img src="images/profile.jpg" alt="profile" style="width:200px;height:200px;">  </div>
+     <div>
+       <label for="email" style="text-align: left;">Email:</label>
+       <input type="text" class="inputvcard" id="email" placeholder="">
+     </div>
+   
+     <div>
+       <label for="password" style="text-align: left;">Password:</label>
+       <input type="password" class="inputvcard" id="password" placeholder="">
+     </div>
+     <div id="error-message" style="color: red;"></div>
+   <div> Already a member? <a href="signup.html">Login</a>
+   </div>
+     <div>
+       <button class="button" onclick="signup()" id="savebutton" type="button">Signup</button>  </div>
+   </form>
+   </div>
 </div>
 </body>
 

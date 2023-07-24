@@ -5,11 +5,17 @@ function login(){
     email=document.getElementById("email").value;
     password=document.getElementById("password").value;
     auth.signInWithEmailAndPassword(email,password).then(cred =>{
-        alert(cred.user.email+"has Logged in" )
+        
 
         
         window.location.href ="dashboard.html";
-    });
+    }).catch(error => {
+        // Display the error message in the error-message div
+        var errorMessage = document.getElementById("error-message");
+        errorMessage.textContent = "Login failed. Please check your email and password.";
+        errorMessage.style.display = "block"; // Show the error message div
+        console.error(error);
+      });
 
     
 
@@ -20,12 +26,18 @@ function signup(){
     email=document.getElementById("email").value;
     password=document.getElementById("password").value;
     auth.createUserWithEmailAndPassword(email,password).then(cred =>{
-        alert(cred.user.email+"has Signed up" )
+ 
         window.location.href ="login.html";
 
 
         
-    });
+    }).catch(error => {
+        // Display the error message in the error-message div
+        var errorMessage = document.getElementById("error-message");
+        errorMessage.textContent = "Signup failed. Please check your email and password (at least 6 letters).";
+        errorMessage.style.display = "block"; // Show the error message div
+        console.error(error);
+      });
 
 
  

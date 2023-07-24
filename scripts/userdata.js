@@ -2,7 +2,6 @@
 
 var usertitle =document.getElementById("usertitle");
 
-
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
      

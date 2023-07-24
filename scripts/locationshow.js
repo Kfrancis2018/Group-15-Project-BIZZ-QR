@@ -18,7 +18,6 @@ firebase.auth().onAuthStateChanged(function(user) {
         .then((doc) => {
           if (doc.exists) {
             console.log("document data", doc.data());
-   
             var street = doc.data().street;
             var city = doc.data().city;
             var state= doc.data().state;

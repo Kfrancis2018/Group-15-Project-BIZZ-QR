@@ -4,12 +4,13 @@
 <head>
    
   <link rel="stylesheet" href="css/css.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" >
 <title>BIZZ QR</title>
 </head>
 
   <div class="header" >
 <nav>
-  <img src="images/placeholder.png" href="index.html" alt="company logo" class="logo">
+  <img src="LOGO.png" href="index.html" alt="company logo" class="logo">
   <ul class="nav-link">
     <li><a href="signup.html">Signup</a></li>
     <li><a href="">/</a></li>
@@ -21,23 +22,28 @@
 
 </div> 
 
-<div class="content">
- <h1 id="pagetitle">BIZZ QR LOGIN PAGE</h1><br>
+<div class="content" >
+ <div class="viewcontent">
  <form class="form-box">
+  <h1 id="pagetitle">BIZZQR  LOGIN </h1><br>
+  <div> 
+    <img src="images/profile.jpg" alt="Girl in a jacket" style="width:200px;height:200px;">  </div>
   <div>
-    <label for="email">Email:</label>
+    <label for="email" style="text-align: left;">Email:</label>
     <input type="text" class="inputvcard" id="email" placeholder="">
   </div>
 
   <div>
-    <label for="password">Password:</label>
+    <label for="password" style="text-align: left;">Password:</label>
     <input type="password" class="inputvcard" id="password" placeholder="">
   </div>
-
+  <div id="error-message" style="color: red;"></div>
+<div> Not a member? <a href="signup.html">Sign up</a>
+</div>
   <div>
     <button class="button" onclick="login()" id="savebutton" type="button">Login</button>  </div>
 </form>
-
+</div>
 </div>
 </body>
 

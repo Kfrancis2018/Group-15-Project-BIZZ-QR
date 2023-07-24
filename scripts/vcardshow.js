@@ -12,14 +12,6 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 
 
-  
-
-
-
-
-
-
-
   function generateVCard(qrname) {
     return new Promise((resolve, reject) => {
       var UserID = auth.currentUser.uid;
@@ -101,7 +93,9 @@ async function downloadVcard() {
 }
 
 async function viewQR() {
+
   try {
+
     const vcardData = await generateVCard(qrname);
     
     // Create a QR code using Google Charts API
@@ -113,6 +107,10 @@ async function viewQR() {
   } catch (error) {
     console.error("Error generating QR code:", error);
   }
+
+
+  var userqr= document.getElementById("qrtitle");
+  userqr.innerHTML= localStorage.getItem("qrname");
 }
 
 
