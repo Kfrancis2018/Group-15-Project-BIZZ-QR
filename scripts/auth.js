@@ -31,6 +31,7 @@ function signup(){
 
 
         
+        
     }).catch(error => {
         // Display the error message in the error-message div
         var errorMessage = document.getElementById("error-message");
